@@ -1,4 +1,3 @@
-const chalk = require("chalk");
 const yargs = require("yargs");
 const notes = require("./notes.js");
 
@@ -9,6 +8,7 @@ yargs.version("1.1.0");
 yargs.command({
   command: "add",
   describe: "Add a new note...",
+  // Defines "parameters"
   builder: {
     title: {
       describe: "Note title",
@@ -21,6 +21,7 @@ yargs.command({
       type: "string",
     },
   },
+  // connects the function from notes.js
   handler(argv) {
     notes.addNote(argv.title, argv.body);
   },
@@ -68,4 +69,5 @@ yargs.command({
 });
 // add, remove, read, list
 
+// creates object from the string value to be read by JS
 yargs.parse();
